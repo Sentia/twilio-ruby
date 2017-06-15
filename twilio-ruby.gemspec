@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency('rubysl') if defined?(RUBY_ENGINE) && RUBY_ENGINE == 'rbx'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'rubocop', '~> 0.49.1'
   spec.add_development_dependency 'yard', '~> 0.9.9'
   spec.extra_rdoc_files = ['README.md', 'LICENSE.md']
   spec.rdoc_options = ['--line-numbers', '--inline-source', '--title', 'twilio-ruby', '--main', 'README.md']

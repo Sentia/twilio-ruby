@@ -15,15 +15,15 @@ module Twilio
         'num_pages',
         'start',
         'uri'
-      ]
+      ].freeze
 
       def initialize(version, response)
-        payload = @process_response(response)
+        payload = process_response(response)
 
         @version = version
         @payload = payload
         @solution = {}
-        @records = @load_page(payload)
+        @records = load_page(payload)
       end
 
       def process_response(response)
@@ -41,7 +41,6 @@ module Twilio
           keys = payload.keys
           key = keys - META_KEYS
           return payload[key.first] if key.size == 1
-          end
         end
 
         raise Twilio::REST::TwilioError.new('Page Records can not be deserialized')
@@ -76,7 +75,7 @@ module Twilio
 
         response = @version.domain.request('GET', self.previous_page_url)
 
-        @class.new(@version, response, @solution)
+        self.class.new(@version, response, @solution)
       end
 
       def next_page
@@ -84,12 +83,12 @@ module Twilio
 
         response = @version.domain.request('GET', self.next_page_url)
 
-        @class.new(@version, response, @solution)
+        self.class.new(@version, response, @solution)
       end
 
       def each
         @records.each do |record|
-          yield @get_instance(record)
+          yield get_instance(record)
         end
       end
 

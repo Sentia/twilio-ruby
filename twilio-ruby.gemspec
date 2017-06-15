@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'twilio-ruby/version'
@@ -12,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A simple library for communicating with the Twilio REST API, building TwiML, and generating Twilio Client Capability Tokens'
   spec.homepage      = 'http://github.com/twilio/twilio-ruby'
   spec.license       = 'MIT'
-  spec.metadata["yard.run"] = "yri" # use "yard" to build full HTML docs.
+  spec.metadata['yard.run'] = 'yri' # use "yard" to build full HTML docs.
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

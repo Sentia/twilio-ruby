@@ -11,7 +11,7 @@ docs:
 	yard doc
 
 lint:
-	rubocop examples/ lib/rack/ lib/twilio-ruby.rb lib/twilio-ruby/framework/ --cache true --parallel true
+	rubocop
 
 authors:
 	echo "Authors\n=======\n\nA huge thanks to all of our contributors:\n\n" > AUTHORS.md
